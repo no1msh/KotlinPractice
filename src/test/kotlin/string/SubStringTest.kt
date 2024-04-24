@@ -15,7 +15,7 @@ class SubStringTest {
         val given = "대한민국"
 
         // when
-        val actual = given.substring(0..1)
+        val actual: String = given.substring(0..1)
 
         // then
         assertThat(actual).isEqualTo("대한")
@@ -27,7 +27,7 @@ class SubStringTest {
         val given = "대한민국"
 
         // when
-        val actual = given.substring(0 until 1)
+        val actual: String = given.substring(0 until 1)
 
         // then
         assertThat(actual).isEqualTo("대")
@@ -39,7 +39,7 @@ class SubStringTest {
         val given = "대한민국"
 
         // when
-        val actual = given.substring(0, 1)
+        val actual: String = given.substring(0, 1)
 
         // then
         assertThat(actual).isEqualTo("대")
@@ -51,7 +51,7 @@ class SubStringTest {
         val given = "대한민국"
 
         // when
-        val actual = given.substring(2)
+        val actual: String = given.substring(2)
 
         // then
         assertThat(actual).isEqualTo("민국")
