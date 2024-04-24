@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test
 
 class SubStringTest {
     @Test
-    fun `subString(range)는 처음과 끝을 모두 포함한다`() {
+    fun `subString(range)는 첫 인덱스와 끝인덱스를 모두 포함한다`() {
         // given
         val given = "대한민국"
 
@@ -22,7 +22,19 @@ class SubStringTest {
     }
 
     @Test
-    fun `subString(startIndex, endIndex)는 처음인덱스를 포함하고 마지막 인덱스를 포함하지 않는다`() {
+    fun `subString(range)는 until을 사용하여 마지막 인덱스는 포함되지 않게 할 수 있다`() {
+        // given
+        val given = "대한민국"
+
+        // when
+        val actual = given.substring(0 until 1)
+
+        // then
+        assertThat(actual).isEqualTo("대")
+    }
+
+    @Test
+    fun `subString(startIndex, endIndex)는 첫인덱스를 포함하고 마지막 인덱스를 포함하지 않는다`() {
         // given
         val given = "대한민국"
 
@@ -34,7 +46,7 @@ class SubStringTest {
     }
 
     @Test
-    fun `subString(startIndex)는 처음인덱스를 포함하고 마지막 인덱스까지 포함한다`() {
+    fun `subString(startIndex)는 첫인덱스를 포함하고 마지막 인덱스까지 포함한다`() {
         // given
         val given = "대한민국"
 
