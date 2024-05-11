@@ -2,6 +2,7 @@ package string
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
 
 class SplitTest {
     @Test
@@ -14,6 +15,22 @@ class SplitTest {
 
         // then
         assertThat(actual).isEqualTo(listOf("a", "b", "c"))
+    }
+
+    @Test
+    fun `문자열을 빈공간을 기준으로 나눌땐 앞뒤 빈공간도 기준이 된다`() {
+        // given
+        val input = "a b c "
+
+        // when
+        val actualWithoutTrim = input.split(" ")
+        val actualWithTrim = input.trim().split(" ")
+
+        // then
+        assertAll(
+            { assertThat(actualWithoutTrim).isEqualTo(listOf("a", "b", "c", "")) },
+            { assertThat(actualWithTrim).isEqualTo(listOf("a", "b", "c")) }
+        )
     }
 
     @Test
